@@ -30,18 +30,13 @@ require "../components/sidebar.php";
                   <button class="bg-red-500 text-white px-2 py-1 rounded">Hapus</button>
                </td>
             </tr>
-            <!-- Tambahkan baris lain dari database -->
          </tbody>
       </table>
    </div>
 
    <!-- Pagination -->
    <div class="absolute bottom-16 left-4 flex justify-center items-center space-x-4 mb-6 w-full">
-      <button class="bg-gray-300 text-black px-4 py-2 rounded hover:bg-gray-400">Prev</button>
-      <button class="bg-gray-300 text-black px-4 py-2 rounded hover:bg-gray-400">1</button>
-      <button class="bg-gray-300 text-black px-4 py-2 rounded hover:bg-gray-400">2</button>
-      <button class="bg-gray-300 text-black px-4 py-2 rounded hover:bg-gray-400">3</button>
-      <button class="bg-gray-300 text-black px-4 py-2 rounded hover:bg-gray-400">Next</button>
+      <?php require "../components/pagination.php"; ?>
    </div>
 
    <!-- Tombol tambah data -->

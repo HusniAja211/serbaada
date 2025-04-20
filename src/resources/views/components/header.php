@@ -6,4 +6,4 @@
     <title>Document</title>
     <link rel="stylesheet" href="/serbaada/public/resources/css/output.css">
 </head>
-<body>
+<body class="overflow-x-hidden">
