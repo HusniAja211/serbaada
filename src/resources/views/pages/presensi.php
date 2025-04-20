@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Presensi</title>
-  <link rel="stylesheet" href="/serbaada/public/resources/css/output.css" />
-</head>
-<body class="bg-gray-100 min-h-screen flex flex-col items-center justify-center px-4">
+<?php 
+require "../components/header.php";
+?>
 
+<main class="bg-gray-100 min-h-screen flex flex-col items-center justify-center px-4">
   <!-- Tombol Kembali -->
   <div class="absolute top-6 left-6">
     <a href="#" class="flex items-center text-gray-700 hover:text-highlight transition">
@@ -27,20 +22,31 @@
       <!-- Nama -->
       <div>
         <label for="nama" class="block text-sm font-medium text-gray-700 mb-1">Nama</label>
-        <input type="text" id="nama" name="nama" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-highlight focus:outline-none">
+        <input type="text" readonly required
+        id="nama" name="nama" 
+        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-highlight focus:outline-none">
       </div>
 
       <!-- Hari -->
       <div>
         <label for="hari" class="block text-sm font-medium text-gray-700 mb-1">Hari</label>
-        <input type="date" id="hari" name="hari" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-highlight focus:outline-none">
+        <input type="date" required
+        id="hari" name="hari" 
+        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-highlight focus:outline-none">
       </div>
 
-      <!-- Keterangan -->
+      <!-- Status -->
       <div>
-        <label for="keterangan" class="block text-sm font-medium text-gray-700 mb-1">Keterangan</label>
-        <input type="text" id="keterangan" name="keterangan" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-highlight focus:outline-none">
+        <label for="status" class="block text-sm font-medium text-gray-700 mb-1">Status</label>
+        <select id="status" name="status" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-highlight focus:outline-none">
+          <option value="" disabled selected>Pilih status</option>
+          <option value="Hadir">Hadir</option>
+          <option value="Izin">Izin</option>
+          <option value="Sakit">Sakit</option>
+          <option value="Tidak Hadir">Tidak Hadir</option>
+        </select>
       </div>
+
 
       <!-- Button -->
       <button type="submit" class="w-full bg-highlight text-white py-2 rounded-md hover:brightness-110 transition font-semibold">
@@ -49,6 +55,7 @@
 
     </form>
   </div>
+</main>
 
 </body>
 </html>

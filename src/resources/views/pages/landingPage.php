@@ -2,9 +2,7 @@
 require "../components/header.php";
 ?>
 
-<main>
-    
-</main>
-    
+<p class="text-highlight">Hello, World!</p>
+
 </body>
 </html>
