@@ -1,28 +1,40 @@
 <?php
-class Connection {
-    private $host = "localhost";
-    private $dbname = "serbaada";
-    private $username = "root";
-    private $password = "";
-    private $conn;
+class Database {
+    private $host = 'localhost';
+    private $user = 'root';
+    private $pass = '';
+    private $db_name = 'serbaada';
+
+    public $conn;
 
     public function __construct() {
-        $this->connect();
-    }
+        // Membuat koneksi ke database menggunakan MySQLi
+        $this->conn = new mysqli($this->host, $this->user, $this->pass, $this->db_name);
 
-    private function connect() {
-        try {
-            $dsn = "mysql:host={$this->host};dbname={$this->dbname};charset=utf8mb4";
-            $this->conn = new PDO($dsn, $this->username, $this->password);
-            // Set mode error ke exception
-            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        } catch (PDOException $e) {
-            die("Koneksi gagal: " . $e->getMessage());
+        // Mengecek apakah koneksi berhasil
+        if ($this->conn->connect_error) {
+            die('Connection failed: ' . $this->conn->connect_error);
         }
     }
 
-    public function getConnection() {
-        return $this->conn;
+    // Menjalankan query biasa
+    public function query($sql) {
+        return $this->conn->query($sql);
+    }
+
+    // Menggunakan prepared statements untuk query yang lebih aman
+    public function prepare($sql) {
+        return $this->conn->prepare($sql);
+    }
+
+    // Escape data untuk mencegah SQL injection
+    public function escape($value) {
+        return $this->conn->real_escape_string($value);
+    }
+
+    // Menutup koneksi
+    public function close() {
+        $this->conn->close();
     }
 }
 ?>

@@ -1,20 +1,27 @@
 <?php
 
-$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+$basePath = '/serbaada';
+$uri = str_replace($basePath, '', parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
 
 // Routing dasar
 switch ($uri) {
-    // case '/':
-    //     require 'controllers/HomeController.php';
-    //     $controller = new HomeController();
-    //     $controller->index();
-    //     break;
+    case '/kategori':
+        require $_SERVER['DOCUMENT_ROOT'] . '/serbaada/src/controllers/KategoriController.php';        
+        $controller = new KategoriController();
+        $controller->index();
+        break;
 
-    // case '/about':
-    //     require 'controllers/AboutController.php';
-    //     $controller = new AboutController();
-    //     $controller->index();
-    //     break;
+    case '/kategori/create':
+        require $_SERVER['DOCUMENT_ROOT'] . '/serbaada/src/controllers/KategoriController.php';
+        $controller = new KategoriController();
+        $controller->create($_POST);
+        break;
+
+    case '/kategori/store':
+        require $_SERVER['DOCUMENT_ROOT'] . '/serbaada/src/controllers/KategoriController.php';
+        $controller = new KategoriController();
+        $controller->store($_POST);
+        break;
 
     default:
         http_response_code(404);

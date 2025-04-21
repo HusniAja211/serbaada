@@ -1,6 +1,6 @@
 <?php 
-require "../components/header.php";
-require "../components/sidebar.php";
+require $_SERVER['DOCUMENT_ROOT'] . '/serbaada/src/resources/views/components/header.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/serbaada/src/resources/views/components/sidebar.php';
 ?>
 
 <main class="p-4 sm:ml-64 bg-gray-200 min-h-screen flex flex-col relative">
@@ -54,5 +54,5 @@ require "../components/sidebar.php";
 </main>
 
 <?php 
-require "../components/footer.php";
+require $_SERVER['DOCUMENT_ROOT'] . '/serbaada/src/resources/views/components/footer.php';
 ?>

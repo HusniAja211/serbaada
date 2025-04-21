@@ -1,5 +1,5 @@
 <?php 
-require "../components/header.php";
+require $_SERVER['DOCUMENT_ROOT'] . '/serbaada/src/resources/views/components/header.php';
 ?>
 
 <main class="bg-gray-100 min-h-screen flex flex-col items-center justify-center px-4">
